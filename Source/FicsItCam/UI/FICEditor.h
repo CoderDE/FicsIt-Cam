@@ -8,6 +8,7 @@ class SFICEditor : public SPanel {
 	SLATE_BEGIN_ARGS(SFICEditor) {}
 		SLATE_ATTRIBUTE(UFICEditorContext*, Context);
 		SLATE_ATTRIBUTE(TSharedPtr<SWidget>, GameWidget);
+		SLATE_ATTRIBUTE(TSharedPtr<SWidget>, GameWidgetHolder);
 	SLATE_END_ARGS()
 
 public:
@@ -20,6 +21,7 @@ private:
 
 	UFICEditorContext* Context = nullptr;
 	TSharedPtr<SWidget> GameWidget;
+	TSharedPtr<SWidget> GameWidgetHolder;
 	TSharedPtr<SWidget> GameSpacer;
 	SHorizontalBox::FSlot* GameSlot = nullptr;
 

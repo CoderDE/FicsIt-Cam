@@ -4,6 +4,8 @@
 #include "FICEditorCameraCharacter.h"
 #include "FICEditor.h"
 #include "FICEditorAttributeBase.h"
+#include "FICTimelineScrubber.h"
+
 
 #include "FICEditorContext.generated.h"
 
@@ -47,11 +49,12 @@ public:
 	TFICEditorAttribute<FFICFloatAttribute> RotYaw;
 	TFICEditorAttribute<FFICFloatAttribute> RotRoll;
 	TFICEditorAttribute<FFICFloatAttribute> FOV;
+	TFICEditorAttribute<FFICFloatAttribute> Replay;
 	FFICEditorGroupAttribute All;
 
 	UFICEditorContext();
 	
-	void SetAnimation(AFICAnimation* Anim);
+	void SetAnimation(AFICAnimation* Anim, AFICEditorCameraCharacter* Camera = nullptr);
 	AFICAnimation* GetAnimation() const;
 	
 	void SetCurrentFrame(int64 inFrame);

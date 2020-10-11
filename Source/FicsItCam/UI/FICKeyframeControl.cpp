@@ -91,7 +91,7 @@ void SFICKeyframeControl::Construct(FArguments InArgs) {
 					} else if (Attr->IsAnimated()) return Style.Get()->AnimatedColor;
 					else return Style.Get()->UnsetColor;
 				})
-				.Image_Lambda([this]() {
+				/*.Image_Lambda([this]() {
 					TSharedPtr<FFICKeyframeRef> KF = Attribute.Get()->GetKeyframe(GetFrame());
 					if (!KF || !*KF) {
 						return &Style.Get()->DefaultBrush;
@@ -112,7 +112,7 @@ void SFICKeyframeControl::Construct(FArguments InArgs) {
 					default:
 						return &Style.Get()->DefaultBrush;
 					}
-				})
+				})*/
 			]
 		]
 	];

@@ -12,8 +12,7 @@ FSlateColorBrush SFICEditor::Background = FSlateColorBrush(FColor::FromHex("0303
 void SFICEditor::Construct(const FArguments& InArgs) {
 	Context = InArgs._Context.Get();
 	GameWidget = InArgs._GameWidget.Get();
-
-	TSharedPtr<SHorizontalBox> GameViewportContainer = StaticCastSharedPtr<SHorizontalBox>(GameWidget->GetParentWidget());
+	GameWidgetHolder = InArgs._GameWidgetHolder.Get();
 
 	Children.Add(SNew(SGridPanel)
 		.FillColumn(1, 1)
@@ -40,7 +39,7 @@ void SFICEditor::Construct(const FArguments& InArgs) {
 			]
 		]
 		+SGridPanel::Slot(1,1)[
-			GameViewportContainer.ToSharedRef()
+			GameWidgetHolder.ToSharedRef()
 		]
 		+SGridPanel::Slot(0, 1)[
 			SNew(SBox)

@@ -1,13 +1,15 @@
-﻿#pragma once
+#pragma once
 
 #include "Camera/CameraComponent.h"
 #include "GameFramework/Character.h"
+#include "GameFramework/SpectatorPawn.h"
+
 
 #include "FICEditorCameraCharacter.generated.h"
 
 class UFICEditorContext;
 UCLASS()
-class AFICEditorCameraCharacter : public ACharacter {
+class AFICEditorCameraCharacter : public ASpectatorPawn {
 	GENERATED_BODY()
 
 private:
@@ -38,9 +40,9 @@ public:
 	// End ACharacter
 	
 	UFUNCTION()
-    void MoveForward(float Value);
+    void FICMoveForward(float Value);
 	UFUNCTION()
-    void MoveRight(float Value);
+    void FICMoveRight(float Value);
 	UFUNCTION()
 	void RotatePitch(float Value);
 	UFUNCTION()

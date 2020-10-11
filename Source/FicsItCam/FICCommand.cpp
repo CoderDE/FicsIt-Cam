@@ -75,6 +75,26 @@ EExecutionStatus AFICCommand::ExecuteCommand_Implementation(UCommandSender* Send
 		SubSys->PlayAnimation(*FoundAnimation);
 		Sender->SendChatMessage("Playing Animation '" + Arguments[1] + "'.");
 	}
+	if (Arguments[0] == "record") {
+		/*AFICAnimation** FoundAnimation = SubSys->StoredAnimations.Find(Arguments[1]);
+		if (!FoundAnimation) {
+			Sender->SendChatMessage("Animation '" + Arguments[1] + "' not found.");
+			return EExecutionStatus::BAD_ARGUMENTS;
+		}*/
+		if (SubSys->IsRecording()) {
+			SubSys->StopRecording();
+			Sender->SendChatMessage("Recording Stopped.");
+		} else {
+			if (Arguments.Num() < 2) return EExecutionStatus::BAD_ARGUMENTS;
+			SubSys->StartRecording(Arguments[1]);
+			Sender->SendChatMessage("Started Recording '" + Arguments[1] + "'.");
+		}
+	}
+	if (Arguments[0] == "playRecord") {
+		if (Arguments.Num() < 2) return EExecutionStatus::BAD_ARGUMENTS;
+		SubSys->PlayRecording(Arguments[1]);
+		Sender->SendChatMessage("Started playing record '" + Arguments[1] + "'.");
+	}
 	return EExecutionStatus::BAD_ARGUMENTS;
 }
 #pragma optimize("", on)

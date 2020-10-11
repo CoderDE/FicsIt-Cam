@@ -21,6 +21,10 @@ private:
 
 	UPROPERTY()
 	UFICEditorContext* EditorContext = nullptr;
+
+	bool bIsRecording = false;
+	bool bShouldShowEditor = false;
+	bool bSetup = true;
 	
 public:
 	UPROPERTY(BlueprintReadWrite, SaveGame, Category="FicsIt-Cam")
@@ -56,4 +60,9 @@ public:
 	UFICEditorContext* GetEditor() const;
 
 	void CreateCamera();
+
+	bool IsRecording();
+	void StopRecording();
+	void StartRecording(const FString& Name);
+	void PlayRecording(const FString& Name);
 };

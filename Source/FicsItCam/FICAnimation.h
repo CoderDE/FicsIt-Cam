@@ -163,6 +163,9 @@ public:
 	FFICFloatAttribute FOV;
 
 	UPROPERTY(SaveGame)
+	FFICFloatAttribute Replay;
+
+	UPROPERTY(SaveGame)
 	int64 AnimationStart = 0;
 
 	UPROPERTY(SaveGame)
